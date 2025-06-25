@@ -1,296 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CyberSec CTF & News Hub - Blog</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberSec CTF & News Hub - Blog</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-      line-height: 1.6;
-      display: grid;
-      grid-template-rows: auto 1fr auto; /* header, content, footer */
-      min-height: 100vh;
-    }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        line-height: 1.6;
+        display: grid;
+        grid-template-rows: auto 1fr auto; /* header, content, footer */
+        min-height: 100vh;
+      }
 
-    /* Header */
-    .header {
-      background-color: #1a1a1a;
-      padding: 1rem 0;
-      border-bottom: 2px solid #00ff88;
-    }
+      /* Header */
+      .header {
+        background-color: #1a1a1a;
+        padding: 1rem 0;
+        border-bottom: 2px solid #00ff88;
+      }
 
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
 
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-    }
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+      }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #00ff88;
-      text-decoration: none;
-    }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #00ff88;
+        text-decoration: none;
+      }
 
-    .nav {
-      display: grid;
-      grid-auto-flow: column;
-      justify-content: end;
-      gap: 2rem;
-    }
+      .nav {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: end;
+        gap: 2rem;
+      }
 
-    .nav a {
-      color: #ffffff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
+      .nav a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
 
-    .nav a:hover {
-      background-color: #2a2a2a;
-      color: #00ff88;
-    }
+      .nav a:hover {
+        background-color: #2a2a2a;
+        color: #00ff88;
+      }
 
-    /* Blog Hero */
-    .blog-hero {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-      padding: 3rem 2rem;
-      margin: 2rem auto;
-      border-radius: 8px;
-      text-align: center;
-      border: 1px solid #333;
-      max-width: 1000px;
+      /* Blog Hero */
+      .blog-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        padding: 3rem 2rem;
+        margin: 2rem auto;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid #333;
+        max-width: 1000px;
 
-      display: grid;
-      gap: 1rem;
-    }
+        display: grid;
+        gap: 1rem;
+      }
 
-    .blog-hero h1 {
-      font-size: 2.5rem;
-      color: #00ff88;
-    }
+      .blog-hero h1 {
+        font-size: 2.5rem;
+        color: #00ff88;
+      }
 
-    .blog-hero p {
-      font-size: 1.1rem;
-      color: #cccccc;
-    }
+      .blog-hero p {
+        font-size: 1.1rem;
+        color: #cccccc;
+      }
 
-    /* Blog Section */
-   .blog-section {
-  max-width: 1200px;   /* matches flexbox layout */
-  margin: 2rem auto;
-  padding: 0 2rem;
-}
+      /* Blog Section */
+      .blog-section {
+        max-width: 1200px; /* matches flexbox layout */
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
 
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 2rem;
-}
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        gap: 2rem;
+      }
 
-/* Post cards */
-.post-card {
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s, border-color 0.3s;
-}
+      /* Post cards */
+      .post-card {
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s, border-color 0.3s;
+      }
 
-.post-card:hover {
-  transform: translateY(-5px);
-  border-color: #00ff88;
-}
+      .post-card:hover {
+        transform: translateY(-5px);
+        border-color: #00ff88;
+      }
 
-.post-image1, .post-image2, .post-image3 {
-  width: 100%;
-  height: 200px;       /* fixed thumbnail height */
-  overflow: hidden;
-  border-bottom: 1px solid #333;
-}
+      .post-image1,
+      .post-image2,
+      .post-image3 {
+        width: 100%;
+        height: 200px; /* fixed thumbnail height */
+        overflow: hidden;
+        border-bottom: 1px solid #333;
+      }
 
-.post-image1 img, .post-image2 img, .post-image3 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+      .post-image1 img,
+      .post-image2 img,
+      .post-image3 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
 
-.post-content {
-  padding: 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+      .post-content {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
 
-.post-content h3 {
-  color: #0088ff;
-  margin-bottom: 0.5rem;
-}
+      .post-content h3 {
+        color: #0088ff;
+        margin-bottom: 0.5rem;
+      }
 
-.post-content p {
-  color: #cccccc;
-  font-size: 0.95rem;
-  flex: 1;
-}
+      .post-content p {
+        color: #cccccc;
+        font-size: 0.95rem;
+        flex: 1;
+      }
 
-.read-more {
-  margin-top: 1rem;
-  align-self: flex-start;
-  color: #00ff88;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+      .read-more {
+        margin-top: 1rem;
+        align-self: flex-start;
+        color: #00ff88;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
 
-.read-more:hover {
-  color: #0088ff;
-}
+      .read-more:hover {
+        color: #0088ff;
+      }
 
-/* Footer */
-    .footer {
-      background-color: #1a1a1a;
-      border-top: 2px solid #00ff88;
-      padding: 2rem 0;
-      margin-top: 2rem;
-    }
+      /* Footer */
+      .footer {
+        background-color: #1a1a1a;
+        border-top: 2px solid #00ff88;
+        padding: 2rem 0;
+        margin-top: 2rem;
+      }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
 
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 1rem;
-    }
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1rem;
+      }
 
-    .social-links {
-      display: grid;
-      grid-auto-flow: column;
-      gap: 1rem;
-    }
+      .social-links {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 1rem;
+      }
 
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      background-color: #2a2a2a;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #00ff88;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background-color: #2a2a2a;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #00ff88;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
 
-    .social-links a:hover {
-      background-color: #00ff88;
-      color: #000;
-    }
+      .social-links a:hover {
+        background-color: #00ff88;
+        color: #000;
+      }
 
-/* Responsive grid */
-@media (max-width: 900px) {
-  .posts-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
-  }
-}
+      /* Responsive grid */
+      @media (max-width: 900px) {
+        .posts-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 per row */
+        }
+      }
 
-@media (max-width: 600px) {
-  .posts-grid {
-    grid-template-columns: 1fr; /* full width on mobile */
-  }
-}
-
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <a href="index.html" class="logo">CyberSec Hub</a>
-      <nav class="nav">
-        <a href="news.html">CTF News</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="techniques.html">Techniques</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Blog Hero -->
-  <section class="blog-hero">
-    <h1>The Secure Blog</h1>
-    <p>Insights, tutorials, and analysis on the latest cyber threats, CTF write-ups, and defense strategies.</p>
-  </section>
-
-  <!-- Blog Section -->
-<section class="blog-section">
-  <div class="posts-grid">
-    <div class="post-card">
-      <div class="post-image1">
-        <img src="674dd433fc637d5b3ebf51ef_state-of-sql-injection-in-2025-v2_fe087363318953118b35c354ede2f467.png" alt="SQL Injection">
+      @media (max-width: 600px) {
+        .posts-grid {
+          grid-template-columns: 1fr; /* full width on mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <a href="index.html" class="logo">CyberSec Hub</a>
+        <nav class="nav">
+          <a href="news.html">CTF News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="techniques.html">Techniques</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+        </nav>
       </div>
-      <div class="post-content">
-        <h3>Understanding SQL Injection</h3>
-        <p>SQL Injection is one of the most common vulnerabilities. Learn how attackers exploit it and how you can defend against it...</p>
-        <a href="#" class="read-more">Read more →</a>
-      </div>
-    </div>
+    </header>
 
-    <div class="post-card">
-      <div class="post-image2">
-        <img src="01JXHY0S1FVDV6V7A75VRB1FC6.png" alt="Reverse Engineering">
-      </div>
-      <div class="post-content">
-        <h3>Beginner’s Guide to Reverse Engineering</h3>
-        <p>Reverse engineering helps you analyze binaries and understand program behavior. This guide introduces tools and techniques...</p>
-        <a href="#" class="read-more">Read more →</a>
-      </div>
-    </div>
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+      <h1>The Secure Blog</h1>
+      <p>
+        Insights, tutorials, and analysis on the latest cyber threats, CTF
+        write-ups, and defense strategies.
+      </p>
+    </section>
 
-    <div class="post-card">
-      <div class="post-image3">
-        <img src="dictionary_attack_alert_triangular_caution_symbol_with_exclamation_mark_abstract_binary_code_data_by_whatawin_gettyimages-1185282377_books_by_bigmouse108_gettyimages-658638956_2400x1600.webp" alt="Password Cracking">
-      </div>
-      <div class="post-content">
-        <h3>Top 5 Password Cracking Tools in 2025</h3>
-        <p>From Hashcat to Brute Force, explore the most popular tools used in penetration testing and how to defend against them...</p>
-        <a href="#" class="read-more">Read more →</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <div class="posts-grid">
+        <div class="post-card">
+          <div class="post-image1">
+            <img src="sqlinjection.png" alt="SQL Injection" />
+          </div>
+          <div class="post-content">
+            <h3>Understanding SQL Injection</h3>
+            <p>
+              SQL Injection is one of the most common vulnerabilities. Learn how
+              attackers exploit it and how you can defend against it...
+            </p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
 
+        <div class="post-card">
+          <div class="post-image2">
+            <img src="reverse.png" alt="Reverse Engineering" />
+          </div>
+          <div class="post-content">
+            <h3>Beginner’s Guide to Reverse Engineering</h3>
+            <p>
+              Reverse engineering helps you analyze binaries and understand
+              program behavior. This guide introduces tools and techniques...
+            </p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2024 CyberSec Hub. All rights reserved.</p>
-      <div class="social-links">
-        <a href="#">T</a>
-        <a href="#">G</a>
-        <a href="#">L</a>
-        <a href="#">D</a>
+        <div class="post-card">
+          <div class="post-image3">
+            <img src="dictionary_attack.webp" alt="Password Cracking" />
+          </div>
+          <div class="post-content">
+            <h3>Top 5 Password Cracking Tools in 2025</h3>
+            <p>
+              From Hashcat to Brute Force, explore the most popular tools used
+              in penetration testing and how to defend against them...
+            </p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
-</body>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 CyberSec Hub. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#">T</a>
+          <a href="#">G</a>
+          <a href="#">L</a>
+          <a href="#">D</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
