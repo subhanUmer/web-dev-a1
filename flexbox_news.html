@@ -1,666 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CTF News - CyberSec Hub</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        line-height: 1.6;
+      }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+      .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
 
-        /* Header */
-        .header {
-            background-color: #1a1a1a;
-            padding: 1rem 0;
-            border-bottom: 2px solid #00ff88;
-        }
+      /* Header */
+      .header {
+        background-color: #1a1a1a;
+        padding: 1rem 0;
+        border-bottom: 2px solid #00ff88;
+      }
 
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #00ff88;
+        text-decoration: none;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        background-color: #2a2a2a;
+        color: #00ff88;
+      }
+
+      /* Page Title */
+      .page-header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        padding: 2rem 0;
+        border-bottom: 1px solid #333;
+      }
+
+      .page-header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        color: #00ff88;
+        margin-bottom: 0.5rem;
+      }
+
+      .page-subtitle {
+        color: #cccccc;
+        font-size: 1.1rem;
+      }
+
+      /* Main Content */
+      .main-wrapper {
+        flex: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        flex: 0 0 280px;
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 1.5rem;
+        height: fit-content;
+        position: sticky;
+        top: 2rem;
+      }
+
+      .filter-section {
+        margin-bottom: 2rem;
+      }
+
+      .filter-section h3 {
+        color: #00ff88;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #333;
+        padding-bottom: 0.5rem;
+      }
+
+      .filter-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .filter-option {
+        padding: 0.5rem 0.8rem;
+        background-color: #2a2a2a;
+        border: 1px solid #333;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .filter-option:hover,
+      .filter-option.active {
+        background-color: #00ff88;
+        color: #000;
+        border-color: #00ff88;
+      }
+
+      /* Main Content Area */
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .results-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #333;
+      }
+
+      .results-count {
+        color: #cccccc;
+        font-size: 0.9rem;
+      }
+
+      .sort-options {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .sort-label {
+        color: #cccccc;
+        font-size: 0.9rem;
+      }
+
+      .sort-select {
+        background-color: #2a2a2a;
+        color: #ffffff;
+        border: 1px solid #333;
+        padding: 0.5rem;
+        border-radius: 4px;
+      }
+
+      /* CTF Cards */
+      .ctf-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .ctf-card {
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: all 0.3s;
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      .ctf-card:hover {
+        border-color: #00ff88;
+        transform: translateY(-2px);
+      }
+
+      .ctf-image {
+        flex: 0 0 120px;
+        height: 80px;
+        background: linear-gradient(45deg, #0088ff, #00ff88);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+
+      .ctf-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .ctf-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .ctf-title {
+        color: #0088ff;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .ctf-status {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .status-badge {
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: bold;
+      }
+
+      .status-live {
+        background-color: #ff4444;
+        color: #ffffff;
+      }
+
+      .status-upcoming {
+        background-color: #ffaa00;
+        color: #000;
+      }
+
+      .status-ended {
+        background-color: #666666;
+        color: #ffffff;
+      }
+
+      .ctf-meta {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        color: #cccccc;
+        font-size: 0.9rem;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .ctf-description {
+        color: #cccccc;
+        margin: 0.5rem 0;
+      }
+
+      .ctf-categories {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .category-tag {
+        background-color: #333;
+        color: #00ff88;
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        font-size: 0.8rem;
+      }
+
+      .ctf-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .action-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background-color: #00ff88;
+        color: #000;
+      }
+
+      .btn-secondary {
+        background-color: #333;
+        color: #ffffff;
+        border: 1px solid #555;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #1a1a1a;
+        border-top: 2px solid #00ff88;
+        padding: 2rem 0;
+        margin-top: 2rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background-color: #2a2a2a;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #00ff88;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: #00ff88;
+        color: #000;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #00ff88;
-            text-decoration: none;
+          flex-direction: column;
+          gap: 1rem;
         }
 
         .nav {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .nav a:hover, .nav a.active {
-            background-color: #2a2a2a;
-            color: #00ff88;
-        }
-
-        /* Page Title */
-        .page-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            padding: 2rem 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .page-header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+          justify-content: center;
         }
 
         .page-title {
-            font-size: 2.5rem;
-            color: #00ff88;
-            margin-bottom: 0.5rem;
+          font-size: 2rem;
         }
 
-        .page-subtitle {
-            color: #cccccc;
-            font-size: 1.1rem;
-        }
-
-        /* Main Content */
         .main-wrapper {
-            flex: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            width: 100%;
-            display: flex;
-            gap: 2rem;
+          flex-direction: column;
+          padding: 1rem;
         }
 
-        /* Sidebar */
         .sidebar {
-            flex: 0 0 280px;
-            background-color: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 1.5rem;
-            height: fit-content;
-            position: sticky;
-            top: 2rem;
-        }
-
-        .filter-section {
-            margin-bottom: 2rem;
-        }
-
-        .filter-section h3 {
-            color: #00ff88;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.5rem;
+          flex: none;
+          position: static;
         }
 
         .filter-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .filter-option {
-            padding: 0.5rem 0.8rem;
-            background-color: #2a2a2a;
-            border: 1px solid #333;
-            border-radius: 4px;
-            color: #ffffff;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .filter-option:hover, .filter-option.active {
-            background-color: #00ff88;
-            color: #000;
-            border-color: #00ff88;
-        }
-
-        /* Main Content Area */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #333;
-        }
-
-        .results-count {
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-
-        .sort-options {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .sort-label {
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-
-        .sort-select {
-            background-color: #2a2a2a;
-            color: #ffffff;
-            border: 1px solid #333;
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
-
-        /* CTF Cards */
-        .ctf-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+          flex-direction: row;
+          flex-wrap: wrap;
         }
 
         .ctf-card {
-            background-color: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s;
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .ctf-card:hover {
-            border-color: #00ff88;
-            transform: translateY(-2px);
+          flex-direction: column;
+          text-align: center;
         }
 
         .ctf-image {
-            flex: 0 0 120px;
-            height: 80px;
-            background: linear-gradient(45deg, #0088ff, #00ff88);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-
-        .ctf-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+          align-self: center;
         }
 
         .ctf-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .ctf-title {
-            color: #0088ff;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .ctf-status {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .status-badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        .status-live {
-            background-color: #ff4444;
-            color: #ffffff;
-        }
-
-        .status-upcoming {
-            background-color: #ffaa00;
-            color: #000;
-        }
-
-        .status-ended {
-            background-color: #666666;
-            color: #ffffff;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
         }
 
         .ctf-meta {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .ctf-description {
-            color: #cccccc;
-            margin: 0.5rem 0;
-        }
-
-        .ctf-categories {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .category-tag {
-            background-color: #333;
-            color: #00ff88;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
-
-        .ctf-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .action-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background-color: #00ff88;
-            color: #000;
-        }
-
-        .btn-secondary {
-            background-color: #333;
-            color: #ffffff;
-            border: 1px solid #555;
-        }
-
-        .action-btn:hover {
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #1a1a1a;
-            border-top: 2px solid #00ff88;
-            padding: 2rem 0;
-            margin-top: 2rem;
+          justify-content: center;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-header {
+          padding: 1rem 0;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
+        .ctf-card {
+          padding: 1rem;
         }
 
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background-color: #2a2a2a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00ff88;
-            text-decoration: none;
-            transition: background-color 0.3s;
+        .ctf-actions {
+          flex-direction: column;
         }
-
-        .social-links a:hover {
-            background-color: #00ff88;
-            color: #000;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav {
-                justify-content: center;
-            }
-
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .main-wrapper {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            .sidebar {
-                flex: none;
-                position: static;
-            }
-
-            .filter-options {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            .ctf-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .ctf-image {
-                align-self: center;
-            }
-
-            .ctf-header {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-
-            .ctf-meta {
-                justify-content: center;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-header {
-                padding: 1rem 0;
-            }
-
-            .ctf-card {
-                padding: 1rem;
-            }
-
-            .ctf-actions {
-                flex-direction: column;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header class="header">
-            <div class="header-content">
-                <a href="index.html" class="logo">CyberSec Hub</a>
-                <nav class="nav">
-                    <a href="news.html" class="active">CTF News</a>
-                    <a href="reviews.html">Reviews</a>
-                    <a href="techniques.html">Techniques</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="about.html">About</a>
-                </nav>
-            </div>
-        </header>
-
-        <section class="page-header">
-            <div class="page-header-content">
-                <h1 class="page-title">Latest CTF Competitions</h1>
-                <p class="page-subtitle">Stay updated with the latest Capture The Flag competitions worldwide</p>
-            </div>
-        </section>
-
-        <div class="main-wrapper">
-            <aside class="sidebar">
-                <div class="filter-section">
-                    <h3>Status</h3>
-                    <div class="filter-options">
-                        <a href="#" class="filter-option active">All Events</a>
-                        <a href="#" class="filter-option">Live Now</a>
-                        <a href="#" class="filter-option">Upcoming</a>
-                        <a href="#" class="filter-option">Registration Open</a>
-                        <a href="#" class="filter-option">Ended</a>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h3>Categories</h3>
-                    <div class="filter-options">
-                        <a href="#" class="filter-option">Web Exploitation</a>
-                        <a href="#" class="filter-option">Cryptography</a>
-                        <a href="#" class="filter-option">Reverse Engineering</a>
-                        <a href="#" class="filter-option">Forensics</a>
-                        <a href="#" class="filter-option">Pwn/Binary</a>
-                        <a href="#" class="filter-option">OSINT</a>
-                    </div>
-                </div>
-
-                <div class="filter-section">
-                    <h3>Format</h3>
-                    <div class="filter-options">
-                        <a href="#" class="filter-option">Jeopardy</a>
-                        <a href="#" class="filter-option">Attack-Defense</a>
-                        <a href="#" class="filter-option">Mixed</a>
-                    </div>
-                </div>
-            </aside>
-
-            <main class="main-content">
-                <div class="results-header">
-                    <div class="results-count">Showing 24 active CTF competitions</div>
-                    <div class="sort-options">
-                        <span class="sort-label">Sort by:</span>
-                        <select class="sort-select">
-                            <option>Date (Newest)</option>
-                            <option>Date (Oldest)</option>
-                            <option>Prize Pool</option>
-                            <option>Popularity</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="ctf-cards">
-                    <div class="ctf-card">
-                        <div class="ctf-image">CYBER24</div>
-                        <div class="ctf-content">
-                            <div class="ctf-header">
-                                <h3 class="ctf-title">Global CyberSec Championship 2024</h3>
-                                <div class="ctf-status">
-                                    <span class="status-badge status-live">LIVE</span>
-                                    <span class="status-badge status-upcoming">24H LEFT</span>
-                                </div>
-                            </div>
-                            <div class="ctf-meta">
-                                <div class="meta-item">📅 Dec 10-12, 2024</div>
-                                <div class="meta-item">👥 Team (1-4)</div>
-                                <div class="meta-item">🏆 $50,000</div>
-                                <div class="meta-item">⭐ 4.8/5</div>
-                            </div>
-                            <p class="ctf-description">
-                                The most prestigious CTF competition featuring advanced challenges in web exploitation, cryptography, and reverse engineering. Open to teams worldwide.
-                            </p>
-                            <div class="ctf-categories">
-                                <span class="category-tag">Web</span>
-                                <span class="category-tag">Crypto</span>
-                                <span class="category-tag">Rev</span>
-                                <span class="category-tag">Forensics</span>
-                            </div>
-                            <div class="ctf-actions">
-                                <a href="#" class="action-btn btn-primary">Join Competition</a>
-                                <a href="#" class="action-btn btn-secondary">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ctf-card">
-                        <div class="ctf-image">HACK24</div>
-                        <div class="ctf-content">
-                            <div class="ctf-header">
-                                <h3 class="ctf-title">HackTheBox University CTF</h3>
-                                <div class="ctf-status">
-                                    <span class="status-badge status-upcoming">UPCOMING</span>
-                                </div>
-                            </div>
-                            <div class="ctf-meta">
-                                <div class="meta-item">📅 Dec 20-22, 2024</div>
-                                <div class="meta-item">👥 Team (1-5)</div>
-                                <div class="meta-item">🏆 $25,000</div>
-                                <div class="meta-item">⭐ 4.6/5</div>
-                            </div>
-                            <p class="ctf-description">
-                                Student-focused CTF with educational challenges designed to test fundamental security concepts and practical skills.
-                            </p>
-                            <div class="ctf-categories">
-                                <span class="category-tag">Web</span>
-                                <span class="category-tag">Pwn</span>
-                                <span class="category-tag">OSINT</span>
-                            </div>
-                            <div class="ctf-actions">
-                                <a href="#" class="action-btn btn-primary">Register Now</a>
-                                <a href="#" class="action-btn btn-secondary">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ctf-card">
-                        <div class="ctf-image">XMAS24</div>
-                        <div class="ctf-content">
-                            <div class="ctf-header">
-                                <h3 class="ctf-title">X-MAS CTF 2024</h3>
-                                <div class="ctf-status">
-                                    <span class="status-badge status-upcoming">REG OPEN</span>
-                                </div>
-                            </div>
-                            <div class="ctf-meta">
-                                <div class="meta-item">📅 Dec 24-26, 2024</div>
-                                <div class="meta-item">👥 Individual</div>
-                                <div class="meta-item">🏆 Swag + Credits</div>
-                                <div class="meta-item">⭐ 4.4/5</div>
-                            </div>
-                            <p class="ctf-description">
-                                Holiday-themed CTF with creative challenges and festive twists. Perfect for beginners and experienced players alike.
-                            </p>
-                            <div class="ctf-categories">
-                                <span class="category-tag">Web</span>
-                                <span class="category-tag">Crypto</span>
-                                <span class="category-tag">Misc</span>
-                                <span class="category-tag">Steganography</span>
-                            </div>
-                            <div class="ctf-actions">
-                                <a href="#" class="action-btn btn-primary">Sign Up</a>
-                                <a href="#" class="action-btn btn-secondary">View Archive</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ctf-card">
-                        <div class="ctf-image">SEC24</div>
-                        <div class="ctf-content">
-                            <div class="ctf-header">
-                                <h3 class="ctf-title">SecureCode Warriors CTF</h3>
-                                <div class="ctf-status">
-                                    <span class="status-badge status-ended">ENDED</span>
-                                </div>
-                            </div>
-                            <div class="ctf-meta">
-                                <div class="meta-item">📅 Dec 1-3, 2024</div>
-                                <div class="meta-item">👥 Team (2-6)</div>
-                                <div class="meta-item">🏆 $15,000</div>
-                                <div class="meta-item">⭐ 4.7/5</div>
-                            </div>
-                            <p class="ctf-description">
-                                Corporate-sponsored CTF focusing on real-world security scenarios and secure coding practices.
-                            </p>
-                            <div class="ctf-categories">
-                                <span class="category-tag">Secure Coding</span>
-                                <span class="category-tag">Web</span>
-                                <span class="category-tag">API Security</span>
-                            </div>
-                            <div class="ctf-actions">
-                                <a href="#" class="action-btn btn-secondary">View Results</a>
-                                <a href="#" class="action-btn btn-secondary">Writeups</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
+      <header class="header">
+        <div class="header-content">
+          <a href="flexbox_home.html" class="logo">CyberSec Hub</a>
+          <nav class="nav">
+            <a href="flexbox_news.html" class="active">CTF News</a>
+            <a href="flexbox_reviews.html">Reviews</a>
+            <a href="flexbox_techniques.html">Techniques</a>
+            <a href="flexbox_blog.html">Blog</a>
+            <a href="flexbox_about.html">About</a>
+          </nav>
         </div>
+      </header>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2024 CyberSec Hub. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" title="Twitter">T</a>
-                    <a href="#" title="GitHub">G</a>
-                    <a href="#" title="LinkedIn">L</a>
-                    <a href="#" title="Discord">D</a>
-                </div>
+      <section class="page-header">
+        <div class="page-header-content">
+          <h1 class="page-title">Latest CTF Competitions</h1>
+          <p class="page-subtitle">
+            Stay updated with the latest Capture The Flag competitions worldwide
+          </p>
+        </div>
+      </section>
+
+      <div class="main-wrapper">
+        <aside class="sidebar">
+          <div class="filter-section">
+            <h3>Status</h3>
+            <div class="filter-options">
+              <a href="#" class="filter-option active">All Events</a>
+              <a href="#" class="filter-option">Live Now</a>
+              <a href="#" class="filter-option">Upcoming</a>
+              <a href="#" class="filter-option">Registration Open</a>
+              <a href="#" class="filter-option">Ended</a>
             </div>
-        </footer>
+          </div>
+
+          <div class="filter-section">
+            <h3>Categories</h3>
+            <div class="filter-options">
+              <a href="#" class="filter-option">Web Exploitation</a>
+              <a href="#" class="filter-option">Cryptography</a>
+              <a href="#" class="filter-option">Reverse Engineering</a>
+              <a href="#" class="filter-option">Forensics</a>
+              <a href="#" class="filter-option">Pwn/Binary</a>
+              <a href="#" class="filter-option">OSINT</a>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3>Format</h3>
+            <div class="filter-options">
+              <a href="#" class="filter-option">Jeopardy</a>
+              <a href="#" class="filter-option">Attack-Defense</a>
+              <a href="#" class="filter-option">Mixed</a>
+            </div>
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <div class="results-header">
+            <div class="results-count">Showing 24 active CTF competitions</div>
+            <div class="sort-options">
+              <span class="sort-label">Sort by:</span>
+              <select class="sort-select">
+                <option>Date (Newest)</option>
+                <option>Date (Oldest)</option>
+                <option>Prize Pool</option>
+                <option>Popularity</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ctf-cards">
+            <div class="ctf-card">
+              <div class="ctf-image">CYBER24</div>
+              <div class="ctf-content">
+                <div class="ctf-header">
+                  <h3 class="ctf-title">Global CyberSec Championship 2024</h3>
+                  <div class="ctf-status">
+                    <span class="status-badge status-live">LIVE</span>
+                    <span class="status-badge status-upcoming">24H LEFT</span>
+                  </div>
+                </div>
+                <div class="ctf-meta">
+                  <div class="meta-item">📅 Dec 10-12, 2024</div>
+                  <div class="meta-item">👥 Team (1-4)</div>
+                  <div class="meta-item">🏆 $50,000</div>
+                  <div class="meta-item">⭐ 4.8/5</div>
+                </div>
+                <p class="ctf-description">
+                  The most prestigious CTF competition featuring advanced
+                  challenges in web exploitation, cryptography, and reverse
+                  engineering. Open to teams worldwide.
+                </p>
+                <div class="ctf-categories">
+                  <span class="category-tag">Web</span>
+                  <span class="category-tag">Crypto</span>
+                  <span class="category-tag">Rev</span>
+                  <span class="category-tag">Forensics</span>
+                </div>
+                <div class="ctf-actions">
+                  <a href="#" class="action-btn btn-primary"
+                    >Join Competition</a
+                  >
+                  <a href="#" class="action-btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctf-card">
+              <div class="ctf-image">HACK24</div>
+              <div class="ctf-content">
+                <div class="ctf-header">
+                  <h3 class="ctf-title">HackTheBox University CTF</h3>
+                  <div class="ctf-status">
+                    <span class="status-badge status-upcoming">UPCOMING</span>
+                  </div>
+                </div>
+                <div class="ctf-meta">
+                  <div class="meta-item">📅 Dec 20-22, 2024</div>
+                  <div class="meta-item">👥 Team (1-5)</div>
+                  <div class="meta-item">🏆 $25,000</div>
+                  <div class="meta-item">⭐ 4.6/5</div>
+                </div>
+                <p class="ctf-description">
+                  Student-focused CTF with educational challenges designed to
+                  test fundamental security concepts and practical skills.
+                </p>
+                <div class="ctf-categories">
+                  <span class="category-tag">Web</span>
+                  <span class="category-tag">Pwn</span>
+                  <span class="category-tag">OSINT</span>
+                </div>
+                <div class="ctf-actions">
+                  <a href="#" class="action-btn btn-primary">Register Now</a>
+                  <a href="#" class="action-btn btn-secondary">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctf-card">
+              <div class="ctf-image">XMAS24</div>
+              <div class="ctf-content">
+                <div class="ctf-header">
+                  <h3 class="ctf-title">X-MAS CTF 2024</h3>
+                  <div class="ctf-status">
+                    <span class="status-badge status-upcoming">REG OPEN</span>
+                  </div>
+                </div>
+                <div class="ctf-meta">
+                  <div class="meta-item">📅 Dec 24-26, 2024</div>
+                  <div class="meta-item">👥 Individual</div>
+                  <div class="meta-item">🏆 Swag + Credits</div>
+                  <div class="meta-item">⭐ 4.4/5</div>
+                </div>
+                <p class="ctf-description">
+                  Holiday-themed CTF with creative challenges and festive
+                  twists. Perfect for beginners and experienced players alike.
+                </p>
+                <div class="ctf-categories">
+                  <span class="category-tag">Web</span>
+                  <span class="category-tag">Crypto</span>
+                  <span class="category-tag">Misc</span>
+                  <span class="category-tag">Steganography</span>
+                </div>
+                <div class="ctf-actions">
+                  <a href="#" class="action-btn btn-primary">Sign Up</a>
+                  <a href="#" class="action-btn btn-secondary">View Archive</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctf-card">
+              <div class="ctf-image">SEC24</div>
+              <div class="ctf-content">
+                <div class="ctf-header">
+                  <h3 class="ctf-title">SecureCode Warriors CTF</h3>
+                  <div class="ctf-status">
+                    <span class="status-badge status-ended">ENDED</span>
+                  </div>
+                </div>
+                <div class="ctf-meta">
+                  <div class="meta-item">📅 Dec 1-3, 2024</div>
+                  <div class="meta-item">👥 Team (2-6)</div>
+                  <div class="meta-item">🏆 $15,000</div>
+                  <div class="meta-item">⭐ 4.7/5</div>
+                </div>
+                <p class="ctf-description">
+                  Corporate-sponsored CTF focusing on real-world security
+                  scenarios and secure coding practices.
+                </p>
+                <div class="ctf-categories">
+                  <span class="category-tag">Secure Coding</span>
+                  <span class="category-tag">Web</span>
+                  <span class="category-tag">API Security</span>
+                </div>
+                <div class="ctf-actions">
+                  <a href="#" class="action-btn btn-secondary">View Results</a>
+                  <a href="#" class="action-btn btn-secondary">Writeups</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 CyberSec Hub. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" title="Twitter">T</a>
+            <a href="#" title="GitHub">G</a>
+            <a href="#" title="LinkedIn">L</a>
+            <a href="#" title="Discord">D</a>
+          </div>
+        </div>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
