@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "New Zero-Day Vulnerability Discovered",
+    "description": "Security researchers have identified a critical vulnerability affecting major web frameworks. Patches are being developed across multiple platforms...",
+    "date": "2 hours ago"
+  },
+  {
+    "id": 2,
+    "title": "DEF CON 32 CTF Results Released",
+    "description": "This year's DEF CON CTF saw record participation with innovative challenges in AI security and quantum cryptography. Team Phoenix takes the crown...",
+    "date": "1 day ago"
+  },
+  {
+    "id": 3,
+    "title": "Bug Bounty Programs Reach New Heights",
+    "description": "Major tech companies have significantly increased their bug bounty rewards, with critical vulnerabilities now fetching up to $1M in rewards...",
+    "date": "3 days ago"
+  }
+]
