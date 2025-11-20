@@ -50,9 +50,14 @@ API integration was done by Ahmed Bhatti
 Other enhancements including theming, Firebase form, polish and AI fallback were done by Shameer
 
 Screenshots
-Home page screenshot: src/assets/images/dictionary_attack.webp
-News page screenshot: src/assets/images/reverse.png
-Techniques page screenshot: src/assets/images/sqlinjection.png
+Home page screenshot: src/assets/images/Screenshot From 2025-11-20 23-29-01.png
+News page screenshot: src/assets/images/Screenshot From 2025-11-20 23-29-09.png
+CTF events page screenshot: src/assets/images/Screenshot From 2025-11-20 23-27-04.png
+Reviews page screenshot: src/assets/images/Screenshot From 2025-11-20 23-29-18.png
+Techniques page screenshot: src/assets/images/Screenshot From 2025-11-20 23-29-27.png
+Blog page screenshot: src/assets/images/Screenshot From 2025-11-20 23-27-16.png
+GitHub search page screenshot: src/assets/images/Screenshot From 2025-11-20 23-30-44.png
+Contact form page screenshot: src/assets/images/Screenshot From 2025-11-20 23-31-00.png
 Team group screenshot: src/assets/team/group.png
 Contributor Subhan: src/assets/team/subhan.png
 Contributor Ahmed: src/assets/team/ahmed.png
