@@ -49,20 +49,20 @@ const About = () => {
   const teamMembers = members.filter((m) => !m.isLeader);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
-      <section className="bg-gradient-to-br from-cyber-darker to-cyber-gray py-12 border-b border-gray-700">
+    <div className="min-h-screen bg-light-bg dark:bg-cyber-dark text-light-text dark:text-white transition-colors">
+      <section className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray py-12 border-b border-light-border dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-cyber-green mb-4">
             About CyberSec Hub
           </h1>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-light-subtle dark:text-gray-300">
             Meet the team behind CyberSec Hub — passionate about CTFs, secure
             coding, and user-friendly design.
           </p>
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Team Overview */}
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
@@ -79,7 +79,7 @@ const About = () => {
         </section>
 
         {/* Team Showcase */}
-        <section className="mb-12">
+  <section className="mb-12">
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Team Showcase
           </h2>
@@ -103,7 +103,7 @@ const About = () => {
         </section>
 
         {/* Individual Highlights */}
-        <section className="mb-12">
+  <section className="mb-12">
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Individual Highlights
           </h2>
@@ -111,16 +111,16 @@ const About = () => {
         </section>
 
         {/* Contact Form */}
-        <section>
+  <section>
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Get In Touch
           </h2>
-          <div className="bg-cyber-darker border border-gray-700 rounded-lg p-8 max-w-2xl">
+    <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-8 max-w-2xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+      className="block text-sm font-medium text-light-subtle dark:text-gray-300 mb-2"
                 >
                   Name
                 </label>
@@ -131,14 +131,14 @@ const About = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-700 text-white border border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
+      className="w-full bg-light-input dark:bg-gray-700 text-light-text dark:text-white border border-light-border dark:border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-light-subtle dark:text-gray-300 mb-2"
                 >
                   Email
                 </label>
@@ -149,14 +149,14 @@ const About = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-700 text-white border border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
+                  className="w-full bg-light-input dark:bg-gray-700 text-light-text dark:text-white border border-light-border dark:border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-light-subtle dark:text-gray-300 mb-2"
                 >
                   Message
                 </label>
@@ -167,7 +167,7 @@ const About = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full bg-gray-700 text-white border border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
+                  className="w-full bg-light-input dark:bg-gray-700 text-light-text dark:text-white border border-light-border dark:border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
                 ></textarea>
               </div>
 

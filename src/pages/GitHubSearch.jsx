@@ -27,21 +27,21 @@ const GitHubSearch = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
-      <section className="bg-gradient-to-br from-cyber-darker to-cyber-gray py-12 border-b border-gray-700">
+    <div className="min-h-screen bg-light-bg dark:bg-cyber-dark text-light-text dark:text-white transition-colors">
+      <section className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray py-12 border-b border-light-border dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-cyber-green mb-4">
             GitHub User Search
           </h1>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-light-subtle dark:text-gray-300">
             Search for GitHub users and view their profiles
           </p>
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search Form */}
-        <div className="bg-cyber-darker border border-gray-700 rounded-lg p-8 mb-8">
+    <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-8 mb-8">
           <form
             onSubmit={handleSearch}
             className="flex flex-col md:flex-row gap-4"
@@ -51,7 +51,7 @@ const GitHubSearch = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter GitHub username..."
-              className="flex-1 bg-gray-700 text-white border border-gray-600 rounded px-6 py-3 focus:outline-none focus:border-cyber-green text-lg"
+      className="flex-1 bg-light-input dark:bg-gray-700 text-light-text dark:text-white border border-light-border dark:border-gray-600 rounded px-6 py-3 focus:outline-none focus:border-cyber-green text-lg"
             />
             <button
               type="submit"
@@ -64,15 +64,15 @@ const GitHubSearch = () => {
         </div>
 
         {/* Loading State */}
-        {isLoading && (
+    {isLoading && (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-cyber-green mx-auto"></div>
-            <p className="mt-4 text-gray-400">Searching GitHub users...</p>
+      <p className="mt-4 text-light-subtle dark:text-gray-400">Searching GitHub users...</p>
           </div>
         )}
 
         {/* Error State */}
-        {error && (
+  {error && (
           <div className="bg-red-900 border border-red-700 rounded-lg p-6 text-center">
             <p className="text-white text-lg">Error: {error}</p>
           </div>
@@ -93,14 +93,14 @@ const GitHubSearch = () => {
         )}
 
         {/* No Results */}
-        {!isLoading && !error && users.length === 0 && username && (
+  {!isLoading && !error && users.length === 0 && username && (
           <div className="text-center py-12 text-gray-400">
             <p className="text-xl">No users found for "{username}"</p>
           </div>
         )}
 
         {/* Initial State */}
-        {!isLoading && !error && users.length === 0 && !username && (
+  {!isLoading && !error && users.length === 0 && !username && (
           <div className="text-center py-12 text-gray-400">
             <p className="text-xl">
               Enter a username to search for GitHub users

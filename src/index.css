@@ -6,7 +6,7 @@
   --color-cyber-gray: #2a2a2a;
   --color-cyber-green: #00ff88;
   --color-cyber-blue: #0088ff;
-  
+
   /* Light mode colors */
   --color-light-bg: #f5f5f5;
   --color-light-card: #ffffff;
@@ -21,7 +21,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Default to dark theme */
-html {
+/* HTML color-scheme will follow the active theme class (light/dark) */
+html.dark {
   color-scheme: dark;
+}
+html:not(.dark) {
+  color-scheme: light;
 }

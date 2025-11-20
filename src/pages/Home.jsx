@@ -29,14 +29,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
+    <div className="min-h-screen bg-light-bg dark:bg-cyber-dark text-light-text dark:text-white transition-colors">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-cyber-darker to-cyber-gray p-8 md:p-16 rounded-lg text-center border border-gray-700 mb-8">
+        <section className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray p-8 md:p-16 rounded-lg text-center border border-light-border dark:border-gray-700 mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-cyber-green mb-4">
             Welcome to CyberSec Hub
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-light-subtle dark:text-gray-300 max-w-2xl mx-auto">
             Your ultimate destination for CTF competitions, cybersecurity news,
             and cutting-edge techniques. Stay ahead in the world of ethical
             hacking and cyber defense.
@@ -48,7 +48,7 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Featured CTF Event
           </h2>
-          <div className="bg-cyber-darker border border-gray-700 rounded-lg p-6">
+          <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-6">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="flex-shrink-0 w-full md:w-48 h-32 bg-gradient-to-br from-cyber-blue to-cyber-green rounded-lg flex items-center justify-center text-black font-bold text-lg">
                 {featuredCTF.imageText}
@@ -68,8 +68,8 @@ const Home = () => {
                     Team
                   </span>
                 </div>
-                <p className="text-gray-300 mb-4">{featuredCTF.description}</p>
-                <p className="text-white">
+                <p className="text-light-subtle dark:text-gray-300 mb-4">{featuredCTF.description}</p>
+                <p className="text-light-text dark:text-white">
                   <strong>Registration:</strong> Open until Dec 15, 2024
                 </p>
               </div>
@@ -78,7 +78,7 @@ const Home = () => {
         </section>
 
         {/* Latest Headlines */}
-        <section className="mb-8">
+  <section className="mb-8">
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Latest Headlines
           </h2>
@@ -94,7 +94,7 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Featured Video
           </h2>
-          <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+          <div className="aspect-video bg-light-card dark:bg-gray-900 rounded-lg overflow-hidden border border-light-border dark:border-gray-700">
             <iframe
               width="100%"
               height="100%"
@@ -108,14 +108,14 @@ const Home = () => {
         </section>
 
         {/* API News from DummyJSON */}
-        <section className="mb-8">
+    <section className="mb-8">
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Latest Tech News (From API)
           </h2>
           {isLoading ? (
             <div className="text-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyber-green mx-auto"></div>
-              <p className="mt-4 text-gray-400">Loading news...</p>
+      <p className="mt-4 text-light-subtle dark:text-gray-400">Loading news...</p>
             </div>
           ) : error ? (
             <div className="bg-red-900 border border-red-700 rounded-lg p-6 text-center">
@@ -139,57 +139,57 @@ const Home = () => {
         </section>
 
         {/* Quick Links */}
-        <section>
+    <section>
           <h2 className="text-3xl font-bold text-cyber-green mb-6 border-b-2 border-gray-700 pb-2">
             Quick Navigation
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <a
               href="/news"
-              className="bg-gradient-to-br from-cyber-darker to-cyber-gray border-2 border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
+      className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray border-2 border-light-border dark:border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
             >
               <div className="text-5xl mb-4">📰</div>
               <h4 className="text-cyber-blue text-xl font-bold mb-2">
                 CTF News
               </h4>
-              <p className="text-gray-300">Latest competitions and updates</p>
+      <p className="text-light-subtle dark:text-gray-300">Latest competitions and updates</p>
             </a>
             <a
               href="/reviews"
-              className="bg-gradient-to-br from-cyber-darker to-cyber-gray border-2 border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
+      className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray border-2 border-light-border dark:border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
             >
               <div className="text-5xl mb-4">⭐</div>
               <h4 className="text-cyber-blue text-xl font-bold mb-2">
                 Reviews
               </h4>
-              <p className="text-gray-300">
+      <p className="text-light-subtle dark:text-gray-300">
                 Detailed CTF write-ups and analysis
               </p>
             </a>
             <a
               href="/techniques"
-              className="bg-gradient-to-br from-cyber-darker to-cyber-gray border-2 border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
+      className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray border-2 border-light-border dark:border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
             >
               <div className="text-5xl mb-4">🔧</div>
               <h4 className="text-cyber-blue text-xl font-bold mb-2">
                 Techniques
               </h4>
-              <p className="text-gray-300">New tools and methodologies</p>
+      <p className="text-light-subtle dark:text-gray-300">New tools and methodologies</p>
             </a>
             <a
               href="/about"
-              className="bg-gradient-to-br from-cyber-darker to-cyber-gray border-2 border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
+      className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray border-2 border-light-border dark:border-gray-700 rounded-lg p-8 text-center hover:border-cyber-green hover:scale-105 transition-all"
             >
               <div className="text-5xl mb-4">ℹ️</div>
               <h4 className="text-cyber-blue text-xl font-bold mb-2">About</h4>
-              <p className="text-gray-300">Contact and information</p>
+      <p className="text-light-subtle dark:text-gray-300">Contact and information</p>
             </a>
           </div>
         </section>
       </main>
 
-      {/* AI Chat Box */}
-      <AIChatBox />
+  {/* AI Chat Box */}
+  <AIChatBox />
     </div>
   );
 };

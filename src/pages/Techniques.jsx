@@ -12,13 +12,13 @@ const Techniques = () => {
       : techniques.filter((t) => t.type === activeFilter);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
-      <section className="bg-gradient-to-br from-cyber-darker to-cyber-gray py-12 border-b border-gray-700">
+    <div className="min-h-screen bg-light-bg dark:bg-cyber-dark text-light-text dark:text-white transition-colors">
+      <section className="bg-gradient-to-br from-light-card to-light-border dark:from-cyber-darker dark:to-cyber-gray py-12 border-b border-light-border dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-cyber-green mb-4">
             Latest Techniques & Tools
           </h1>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-light-subtle dark:text-gray-300">
             Cutting-edge security techniques, tools, and research insights
           </p>
         </div>
@@ -26,7 +26,7 @@ const Techniques = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Categories Filter */}
-        <div className="bg-cyber-darker border border-gray-700 rounded-lg p-4 mb-8">
+        <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-4 mb-8">
           <div className="flex flex-wrap gap-4 items-center">
             <span className="text-cyber-green font-bold mr-4">Categories:</span>
             {["all", "technique", "tool", "research", "exploit"].map(
@@ -37,7 +37,7 @@ const Techniques = () => {
                   className={`px-4 py-2 rounded-full font-medium transition-all ${
                     activeFilter === filter
                       ? "bg-cyber-green text-black"
-                      : "bg-cyber-gray text-white hover:bg-gray-600"
+                      : "bg-light-pill dark:bg-cyber-gray text-light-text dark:text-white hover:bg-light-border dark:hover:bg-gray-600"
                   }`}
                 >
                   {filter.charAt(0).toUpperCase() + filter.slice(1)}
@@ -48,7 +48,7 @@ const Techniques = () => {
         </div>
 
         {/* Techniques List */}
-        <div className="space-y-8">
+  <div className="space-y-8">
           {filteredTechniques.map((technique) => (
             <TechniqueCard key={technique.id} technique={technique} />
           ))}

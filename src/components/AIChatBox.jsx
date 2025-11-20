@@ -55,7 +55,7 @@ const AIChatBox = () => {
         </button>
       ) : (
         <div
-          className="bg-cyber-darker border-2 border-cyber-green rounded-lg shadow-2xl w-96 max-w-[calc(100vw-2rem)] flex flex-col"
+          className="bg-light-card dark:bg-cyber-darker border-2 border-cyber-green rounded-lg shadow-2xl w-96 max-w-[calc(100vw-2rem)] flex flex-col"
           style={{ height: "500px" }}
         >
           {/* Header */}
@@ -85,7 +85,7 @@ const AIChatBox = () => {
                   className={`max-w-[80%] p-3 rounded-lg ${
                     message.role === "user"
                       ? "bg-cyber-blue text-white"
-                      : "bg-gray-700 text-gray-100"
+                      : "bg-light-pill dark:bg-gray-700 text-light-text dark:text-gray-100"
                   }`}
                 >
                   {message.text}
@@ -94,7 +94,7 @@ const AIChatBox = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-gray-700 text-gray-100 p-3 rounded-lg">
+                <div className="bg-light-pill dark:bg-gray-700 text-light-text dark:text-gray-100 p-3 rounded-lg">
                   <span className="animate-pulse">Thinking...</span>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const AIChatBox = () => {
           </div>
 
           {/* Input */}
-          <div className="border-t border-gray-700 p-4">
+      <div className="border-t border-light-border dark:border-gray-700 p-4">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -110,7 +110,7 @@ const AIChatBox = () => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about cybersecurity..."
-                className="flex-1 bg-gray-700 text-white border border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
+        className="flex-1 bg-light-input dark:bg-gray-700 text-light-text dark:text-white border border-light-border dark:border-gray-600 rounded px-4 py-2 focus:outline-none focus:border-cyber-green"
                 disabled={isLoading}
               />
               <button

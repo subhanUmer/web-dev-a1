@@ -12,7 +12,7 @@ import GitHubSearch from "./pages/GitHubSearch";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-cyber-dark dark:bg-cyber-dark bg-light-bg transition-colors duration-300">
+      <div className="flex flex-col min-h-screen bg-light-bg dark:bg-cyber-dark transition-colors duration-300">
         <Header />
         <div className="flex-1">
           <Routes>

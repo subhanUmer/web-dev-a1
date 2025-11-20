@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const GitHubUserCard = ({ user }) => {
   return (
-    <div className="bg-cyber-darker border border-gray-700 rounded-lg p-6 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300">
+    <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-6 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300">
       <div className="flex items-center gap-4">
         <img
           src={user.avatar_url}
@@ -10,7 +10,7 @@ const GitHubUserCard = ({ user }) => {
           className="w-20 h-20 rounded-full border-2 border-cyber-green"
         />
         <div className="flex-1">
-          <h3 className="text-white text-xl font-bold mb-1">{user.login}</h3>
+          <h3 className="text-light-text dark:text-white text-xl font-bold mb-1">{user.login}</h3>
           <a
             href={user.html_url}
             target="_blank"

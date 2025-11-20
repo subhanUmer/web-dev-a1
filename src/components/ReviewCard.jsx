@@ -26,7 +26,7 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
-    <div className="bg-cyber-darker border border-gray-700 rounded-lg p-6 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300 flex flex-col min-w-[320px] max-w-[400px]">
+    <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-6 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300 flex flex-col min-w-[320px] max-w-[400px]">
       <div className="flex justify-between items-start mb-4">
         <h4 className="text-cyber-blue text-lg font-bold flex-1">
           {review.title}
@@ -42,10 +42,10 @@ const ReviewCard = ({ review }) => {
         >
           {review.difficulty}
         </span>
-        <span className="text-gray-500">{review.date}</span>
+  <span className="text-light-muted dark:text-gray-500">{review.date}</span>
       </div>
 
-      <p className="text-gray-300 mb-4 flex-1 leading-relaxed">
+  <p className="text-light-subtle dark:text-gray-300 mb-4 flex-1 leading-relaxed">
         {review.summary}
       </p>
 
@@ -53,7 +53,7 @@ const ReviewCard = ({ review }) => {
         {review.tags.map((tag, index) => (
           <span
             key={index}
-            className="bg-gray-700 text-cyber-green px-2 py-1 rounded-full text-xs"
+            className="bg-light-pill dark:bg-gray-700 text-cyber-green px-2 py-1 rounded-full text-xs"
           >
             {tag}
           </span>
@@ -67,7 +67,7 @@ const ReviewCard = ({ review }) => {
         >
           Read More
         </a>
-        <span className="text-gray-500 text-xs">{review.stats}</span>
+  <span className="text-light-muted dark:text-gray-500 text-xs">{review.stats}</span>
       </div>
     </div>
   );

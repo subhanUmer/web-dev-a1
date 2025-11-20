@@ -15,7 +15,7 @@ const CTFCard = ({ event }) => {
   };
 
   return (
-    <div className="bg-cyber-darker border border-gray-700 rounded-lg p-6 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300">
+    <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-6 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-shrink-0 w-full md:w-32 h-20 bg-gradient-to-br from-cyber-blue to-cyber-green rounded-lg flex items-center justify-center text-black font-bold text-sm">
           {event.imageText}
@@ -35,7 +35,7 @@ const CTFCard = ({ event }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-gray-300 text-sm mb-4">
+          <div className="flex flex-wrap gap-4 text-light-subtle dark:text-gray-300 text-sm mb-4">
             <div className="flex items-center gap-1">
               <span>📅</span>
               <span>{event.date}</span>
@@ -54,14 +54,14 @@ const CTFCard = ({ event }) => {
             </div>
           </div>
 
-          <p className="text-gray-300 mb-4">{event.description}</p>
+          <p className="text-light-subtle dark:text-gray-300 mb-4">{event.description}</p>
 
           <div className="flex gap-2 flex-wrap mb-4">
             {event.categories.map((category, index) => (
               <span
-                key={index}
-                className="bg-gray-700 text-cyber-green px-3 py-1 rounded-full text-xs"
-              >
+                  key={index}
+                  className="bg-light-pill dark:bg-gray-700 text-cyber-green px-3 py-1 rounded-full text-xs"
+                >
                 {category}
               </span>
             ))}

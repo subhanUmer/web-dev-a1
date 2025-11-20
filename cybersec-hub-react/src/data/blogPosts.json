@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding SQL Injection",
+    "description": "SQL Injection is one of the most common vulnerabilities. Learn how attackers exploit it and how you can defend against it...",
+    "image": "/src/assets/images/sqlinjection.png"
+  },
+  {
+    "id": 2,
+    "title": "Beginner's Guide to Reverse Engineering",
+    "description": "Reverse engineering helps you analyze binaries and understand program behavior. This guide introduces tools and techniques...",
+    "image": "/src/assets/images/reverse.png"
+  },
+  {
+    "id": 3,
+    "title": "Top 5 Password Cracking Tools in 2025",
+    "description": "From Hashcat to Brute Force, explore the most popular tools used in penetration testing and how to defend against them...",
+    "image": "/src/assets/images/dictionary_attack.webp"
+  }
+]

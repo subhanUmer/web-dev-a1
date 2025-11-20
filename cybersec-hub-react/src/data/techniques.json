@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "Advanced SQLi Bypass Techniques for WAF Evasion",
+    "type": "technique",
+    "author": "Alex Chen",
+    "date": "Dec 5, 2024",
+    "readTime": "8 min read",
+    "badge": "Hot Topic",
+    "description": "Explore advanced SQL injection techniques that bypass modern Web Application Firewalls. This comprehensive guide covers encoding methods, comment-based bypasses, and novel payload structures that evade detection by popular WAF solutions including Cloudflare, AWS WAF, and F5.",
+    "icon": "🔧",
+    "tags": ["SQLi", "WAF Bypass", "Web Security", "Payload Crafting"],
+    "codePreview": "// Example: Comment-based WAF bypass\nSELECT * FROM users WHERE id='1'/**/union/**/select/**/1,2,database()--\n// Encoding bypass\nSELECT * FROM users WHERE id=CHAR(49)"
+  },
+  {
+    "id": 2,
+    "title": "CyberChef Plus: Enhanced Recipe Automation",
+    "type": "tool",
+    "author": "Security Team",
+    "date": "Dec 3, 2024",
+    "readTime": "5 min read",
+    "badge": "New Release",
+    "description": "A powerful extension to GCHQ's CyberChef that adds automated recipe discovery, batch processing capabilities, and API integration for forensics workflows. Streamline your data analysis with intelligent pattern recognition and automated decoding chains.",
+    "icon": "⚡",
+    "tags": ["Forensics", "Automation", "Data Analysis", "CLI Tool"],
+    "codePreview": "# Batch processing example\ncyberchef-plus --recipe=\"base64_decode,rot13\" --input-dir=./samples/ --output-format=json\n\n# Auto-detection mode\ncyberchef-plus --auto-detect --file=suspicious.txt --confidence=0.8"
+  },
+  {
+    "id": 3,
+    "title": "AI-Powered Threat Detection in Network Traffic",
+    "type": "research",
+    "author": "Dr. Sarah Kim",
+    "date": "Nov 30, 2024",
+    "readTime": "12 min read",
+    "badge": "Academic",
+    "description": "Research paper on implementing machine learning algorithms for real-time network intrusion detection. Covers LSTM networks, ensemble methods, and feature engineering for identifying APT traffic patterns with 97.3% accuracy and minimal false positives.",
+    "icon": "🛡️",
+    "tags": ["Machine Learning", "Network Security", "IDS", "APT Detection"],
+    "codePreview": "# Neural network architecture for traffic analysis\nmodel = Sequential([\n  LSTM(128, return_sequences=True),\n  Dropout(0.2),\n  LSTM(64),\n  Dense(32, activation='relu'),\n  Dense(1, activation='sigmoid')\n])"
+  },
+  {
+    "id": 4,
+    "title": "Container Escape via Kernel Exploit CVE-2024-1086",
+    "type": "exploit",
+    "author": "Red Team Labs",
+    "date": "Nov 28, 2024",
+    "readTime": "10 min read",
+    "badge": "Critical",
+    "description": "Deep dive into the recent Linux kernel vulnerability allowing container escape. Includes exploitation methodology, affected versions, detection strategies, and mitigation techniques. Essential reading for DevSecOps and container security professionals.",
+    "icon": "💥",
+    "tags": [
+      "Container Security",
+      "Kernel Exploit",
+      "Privilege Escalation",
+      "CVE Analysis"
+    ],
+    "codePreview": "/* Trigger the vulnerability */\nint exploit_fd = open(\"/dev/vulnerable_device\", O_RDWR);\nif (ioctl(exploit_fd, VULNERABLE_IOCTL, &payload) == 0) {\n  printf(\"Container escape successful!\\n\");\n}"
+  }
+]

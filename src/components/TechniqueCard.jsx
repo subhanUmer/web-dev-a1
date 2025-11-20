@@ -17,7 +17,7 @@ const TechniqueCard = ({ technique }) => {
   };
 
   return (
-    <div className="bg-cyber-darker border border-gray-700 rounded-lg p-8 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300">
+    <div className="bg-light-card dark:bg-cyber-darker border border-light-border dark:border-gray-700 rounded-lg p-8 hover:border-cyber-green hover:-translate-y-1 transition-all duration-300">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-cyber-blue to-cyber-green rounded-lg flex items-center justify-center text-4xl">
           {technique.icon}
@@ -37,7 +37,7 @@ const TechniqueCard = ({ technique }) => {
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-gray-300 text-sm mb-4">
+          <div className="flex flex-wrap gap-4 text-light-subtle dark:text-gray-300 text-sm mb-4">
             <div className="flex items-center gap-1">
               <span>📅</span>
               <span>{technique.date}</span>
@@ -55,12 +55,12 @@ const TechniqueCard = ({ technique }) => {
             </div>
           </div>
 
-          <p className="text-gray-300 mb-4 leading-relaxed">
+          <p className="text-light-subtle dark:text-gray-300 mb-4 leading-relaxed">
             {technique.description}
           </p>
 
           {technique.codePreview && (
-            <div className="bg-black border border-gray-700 rounded p-4 mb-4 overflow-x-auto">
+            <div className="bg-light-code dark:bg-black border border-light-border dark:border-gray-700 rounded p-4 mb-4 overflow-x-auto">
               <pre className="text-cyber-green text-sm font-mono whitespace-pre-wrap">
                 {technique.codePreview}
               </pre>
@@ -70,9 +70,9 @@ const TechniqueCard = ({ technique }) => {
           <div className="flex gap-2 flex-wrap mb-4">
             {technique.tags.map((tag, index) => (
               <span
-                key={index}
-                className="bg-gray-700 text-cyber-green px-3 py-1 rounded-full text-xs"
-              >
+                  key={index}
+                  className="bg-light-pill dark:bg-gray-700 text-cyber-green px-3 py-1 rounded-full text-xs"
+                >
                 {tag}
               </span>
             ))}
